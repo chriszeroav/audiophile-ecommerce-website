@@ -46,10 +46,22 @@ export const Header: FC<HeaderProps> = () => {
             </DrawerClose>
 
             <div className="min-h-dvh flex flex-col justify-center gap-8 text-center">
-              <NavLinkItem href="/">HOME</NavLinkItem>
-              <NavLinkItem href="/headphones">HEADPHONES</NavLinkItem>
-              <NavLinkItem href="/speakers">SPEAKERS</NavLinkItem>
-              <NavLinkItem href="/earphones">EARPHONES</NavLinkItem>
+              <DrawerClose asChild>
+                <NavLinkItem href="/">HOME</NavLinkItem>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <NavLinkItem href="/categories/headphones">
+                  HEADPHONES
+                </NavLinkItem>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <NavLinkItem href="/categories/speakers">SPEAKERS</NavLinkItem>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <NavLinkItem href="/categories/earphones">
+                  EARPHONES
+                </NavLinkItem>
+              </DrawerClose>
             </div>
           </DrawerContent>
         </Drawer>
@@ -59,9 +71,9 @@ export const Header: FC<HeaderProps> = () => {
 
         <nav className="hidden lg:flex items-center gap-8">
           <NavLinkItem href="/">HOME</NavLinkItem>
-          <NavLinkItem href="/headphones">HEADPHONES</NavLinkItem>
-          <NavLinkItem href="/speakers">SPEAKERS</NavLinkItem>
-          <NavLinkItem href="/earphones">EARPHONES</NavLinkItem>
+          <NavLinkItem href="/categories/headphones">HEADPHONES</NavLinkItem>
+          <NavLinkItem href="/categories/speakers">SPEAKERS</NavLinkItem>
+          <NavLinkItem href="/categories/earphones">EARPHONES</NavLinkItem>
         </nav>
 
         <Dialog>

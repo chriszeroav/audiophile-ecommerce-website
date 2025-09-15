@@ -29,13 +29,16 @@ export const Footer: FC<FooterProps> = () => {
             <NavLinkItem className="text-subtitle" href="/">
               HOME
             </NavLinkItem>
-            <NavLinkItem className="text-subtitle" href="/headphones">
+            <NavLinkItem
+              className="text-subtitle"
+              href="/categories/headphones"
+            >
               HEADPHONES
             </NavLinkItem>
-            <NavLinkItem className="text-subtitle" href="/speakers">
+            <NavLinkItem className="text-subtitle" href="/categories/speakers">
               SPEAKERS
             </NavLinkItem>
-            <NavLinkItem className="text-subtitle" href="/earphones">
+            <NavLinkItem className="text-subtitle" href="/categories/earphones">
               EARPHONES
             </NavLinkItem>
           </nav>

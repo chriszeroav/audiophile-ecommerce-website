@@ -10,7 +10,10 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Audiophile E-commerce Website",
+  title: {
+    template: "Audiophile | %s",
+    default: "Audiophile | Home",
+  },
   description: "An e-commerce website for high-end audio products.",
 };
 
