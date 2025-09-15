@@ -13,6 +13,19 @@
   --font-manrope: var(--font-manrope);
 
   --spacing-custom: 1110px;
+
+  @keyframes blur {
+    to {
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+#header {
+  animation: blur linear both;
+  animation-timeline: scroll();
+  animation-range: 0 500px;
 }
 
 @utility text-h1 {

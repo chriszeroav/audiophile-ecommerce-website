@@ -15,33 +15,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  NavLinkItem,
 } from "@/components/ui";
-import { Menu, MenuIcon, ShoppingCartIcon, XIcon } from "lucide-react";
-
-interface NavLinkItemProps {
-  href: string;
-  children: React.ReactNode;
-}
-
-const NavLinkItem: FC<NavLinkItemProps> = ({ href, children }) => {
-  return (
-    <Link
-      className={cn(
-        "text-custom-white hover:text-custom-primary",
-        "text-h6 md:text-subtitle transition-colors duration-300"
-      )}
-      href={href}
-    >
-      {children}
-    </Link>
-  );
-};
+import { MenuIcon, ShoppingCartIcon, XIcon } from "lucide-react";
 
 interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <header className="px-4 fixed top-0 w-full">
+    <header id="header" className="px-4 fixed top-0 w-full z-20">
       <div
         className={cn(
           "max-w-custom mx-auto h-24",
@@ -51,7 +33,7 @@ export const Header: FC<HeaderProps> = () => {
       >
         <Drawer direction="left">
           <DrawerTrigger className="lg:hidden cursor-pointer">
-            <Menu className="text-custom-white" />
+            <MenuIcon className="text-custom-white" />
           </DrawerTrigger>
           <DrawerContent className="bg-custom-black-alt w-3/4 ">
             <DrawerHeader className="sr-only">
