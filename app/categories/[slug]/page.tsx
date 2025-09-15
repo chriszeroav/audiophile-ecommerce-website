@@ -40,7 +40,7 @@ export default async function Page({
   }
 
   return (
-    <main className="flex flex-col gap-28">
+    <main className="flex flex-col gap-28 pt-24">
       <Hero category={category} />
       <Products category={category} />
       <Categories />

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -18,12 +20,21 @@ import {
   NavLinkItem,
 } from "@/components/ui";
 import { MenuIcon, ShoppingCartIcon, XIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
+  const pathname = usePathname();
+
   return (
-    <header id="header" className="px-4 fixed top-0 w-full z-20">
+    <header
+      id="header"
+      className={cn(
+        "px-4 fixed top-0 w-full z-20",
+        pathname !== "/" && "bg-custom-black"
+      )}
+    >
       <div
         className={cn(
           "max-w-custom mx-auto h-24",

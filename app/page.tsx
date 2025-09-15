@@ -5,8 +5,7 @@ import {
   SplitPromoCard,
 } from "@/components/home";
 import { About, Categories } from "@/components/layout";
-
-export default function Page() {
+export default async function Page() {
   return (
     <main className="flex flex-col gap-28">
       <Hero />

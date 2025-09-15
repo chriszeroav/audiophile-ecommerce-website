@@ -1,4 +1,11 @@
-import { CATEGORIES, PRODUCTS } from "@/data";
+import { About, Categories } from "@/components/layout";
+import {
+  GoBack,
+  ProductCard,
+  ProductDetails,
+  ProductGallery,
+} from "@/components/product";
+import { PRODUCTS } from "@/data";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -37,5 +44,16 @@ export default async function Page({
     notFound();
   }
 
-  return <main className="flex flex-col gap-28"></main>;
+  return (
+    <main className="flex flex-col gap-32 pt-24">
+      <div className="flex flex-col gap-2">
+        <GoBack />
+        <ProductCard product={product} />
+      </div>
+      <ProductDetails product={product} />
+      <ProductGallery product={product} />
+      <Categories />
+      <About />
+    </main>
+  );
 }

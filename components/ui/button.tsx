@@ -15,9 +15,11 @@ const buttonVariants = cva(
         outline:
           "border border-custom-black text-custom-black hover:bg-custom-black hover:text-custom-white",
         ghost: "text-custom-black/50 hover:text-custom-primary",
+        none: "",
       },
       size: {
         default: "w-[160px] h-12 px-4 py-1",
+        none: "",
       },
     },
     defaultVariants: {
