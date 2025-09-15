@@ -3,6 +3,7 @@ import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
+import { CATEGORIES } from "@/data";
 
 interface CategoriesProps {}
 
@@ -16,23 +17,14 @@ export const Categories: FC<CategoriesProps> = () => {
           "md:grid-cols-3 lg:auto-rows-[284px] lg:gap-8"
         )}
       >
-        <Category
-          href="/categories/headphones"
-          src="/shared/desktop/image-category-thumbnail-headphones.png"
-          title="HEADPHONES"
-        />
-
-        <Category
-          href="/categories/speakers"
-          src="/shared/desktop/image-category-thumbnail-speakers.png"
-          title="SPEAKERS"
-        />
-
-        <Category
-          href="/categories/earphones"
-          src="/shared/desktop/image-category-thumbnail-earphones.png"
-          title="EARPHONES"
-        />
+        {CATEGORIES.map((category) => (
+          <Category
+            key={category.slug}
+            href={`/categories/${category.slug}`}
+            src={category.image}
+            title={category.title.toUpperCase()}
+          />
+        ))}
       </ul>
     </section>
   );

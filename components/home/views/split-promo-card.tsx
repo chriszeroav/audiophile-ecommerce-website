@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
 import React, { FC } from "react";
+import { buttonVariants } from "@/components/ui";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface SplitPromoCardProps {}
 
@@ -36,9 +37,15 @@ export const SplitPromoCard: FC<SplitPromoCardProps> = () => {
           )}
         >
           <h2 className="text-h4 text-custom-black">YX1 EARPHONES</h2>
-          <Button variant="outline" className="uppercase text-subtitle">
+          <Link
+            href="/products/yx1-earphones"
+            className={buttonVariants({
+              variant: "outline",
+              className: "uppercase text-subtitle",
+            })}
+          >
             See Product
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

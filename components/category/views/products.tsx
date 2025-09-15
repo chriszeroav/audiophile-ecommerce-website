@@ -1,12 +1,16 @@
 import React, { FC } from "react";
-import { Product } from "@/data";
 import { Products as ProductsList } from "@/reports";
+import { Category, PRODUCTS } from "@/data";
 
 interface ProductsProps {
-  products: Product[];
+  category: Category;
 }
 
-export const Products: FC<ProductsProps> = ({ products }) => {
+export const Products: FC<ProductsProps> = ({ category }) => {
+  const products = PRODUCTS.filter(
+    (product) => product.category.toLowerCase() === category.slug
+  );
+
   return (
     <section className="px-4">
       <div className="max-w-custom mx-auto">

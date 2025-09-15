@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Product } from "@/data";
-import { Button } from "@/components/ui";
+import { Button, buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ProductsProps {
   data: Product[];
@@ -19,18 +20,18 @@ export const Products: FC<ProductsProps> = ({ data }) => {
           )}
         >
           <img
-            src={item.imageMobile}
-            alt={item.title}
+            src={item.categoryImages.mobile}
+            alt={item.name}
             className="rounded-lg md:hidden"
           />
           <img
-            src={item.imageTablet}
-            alt={item.imageTablet}
+            src={item.categoryImages.tablet}
+            alt={item.name}
             className="rounded-lg hidden md:block lg:hidden"
           />
           <img
-            src={item.imageDesktop}
-            alt={item.imageDesktop}
+            src={item.categoryImages.desktop}
+            alt={item.name}
             className="rounded-lg hidden lg:block max-w-[540px]"
           />
           <div className="flex flex-col items-center lg:items-start lg:text-start text-center lg:justify-center gap-6">
@@ -40,12 +41,19 @@ export const Products: FC<ProductsProps> = ({ data }) => {
               </p>
             )}
             <h2 className="text-h4 md:text-h2 text-custom-black uppercase max-w-[280px]">
-              {item.title}
+              {item.name}
             </h2>
             <p className="text-body text-custom-black/50 max-w-[570px] lg:max-w-[440px]">
               {item.description}
             </p>
-            <Button className="uppercase text-subtitle">See Product</Button>
+            <Link
+              href={`/products/${item.slug}`}
+              className={buttonVariants({
+                className: "uppercase text-subtitle",
+              })}
+            >
+              See Product
+            </Link>
           </div>
         </li>
       ))}

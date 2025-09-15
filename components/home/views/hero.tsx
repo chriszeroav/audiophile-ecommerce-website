@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui";
+import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React, { FC } from "react";
 
 interface HeroProps {}
@@ -40,7 +41,12 @@ export const Hero: FC<HeroProps> = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <Button className="uppercase text-subtitle">See Product</Button>
+        <Link
+          className={buttonVariants({ className: "uppercase text-subtitle" })}
+          href="/products/xx99-mark-two-headphones"
+        >
+          See Product
+        </Link>
       </div>
     </section>
   );

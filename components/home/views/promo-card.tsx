@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import { Button } from "@/components/ui";
+import { buttonVariants } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface PromoCardProps {}
 
@@ -60,9 +61,15 @@ export const PromoCard: FC<PromoCardProps> = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Button variant="secondary" className="uppercase text-subtitle">
+          <Link
+            href="/products/zx9-speaker"
+            className={buttonVariants({
+              variant: "secondary",
+              className: "uppercase text-subtitle",
+            })}
+          >
             See Product
-          </Button>
+          </Link>
         </div>
       </div>
     </section>
