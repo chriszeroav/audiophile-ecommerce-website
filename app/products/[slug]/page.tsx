@@ -4,6 +4,7 @@ import {
   ProductCard,
   ProductDetails,
   ProductGallery,
+  Products,
 } from "@/components/product";
 import { PRODUCTS } from "@/data";
 import { Metadata } from "next";
@@ -46,12 +47,13 @@ export default async function Page({
 
   return (
     <main className="flex flex-col gap-32 pt-24">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-6 lg:gap-10 pt-8">
         <GoBack />
         <ProductCard product={product} />
       </div>
       <ProductDetails product={product} />
       <ProductGallery product={product} />
+      <Products product={product} />
       <Categories />
       <About />
     </main>

@@ -31,7 +31,7 @@ export const Header: FC<HeaderProps> = () => {
     <header
       id="header"
       className={cn(
-        "px-4 fixed top-0 w-full z-20",
+        "px-4 fixed top-0 w-full z-50",
         pathname !== "/" && "bg-custom-black"
       )}
     >
@@ -80,7 +80,7 @@ export const Header: FC<HeaderProps> = () => {
           <img src="/shared/desktop/logo.svg" alt="Audiophile" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8 relative z-50">
           <NavLinkItem href="/">HOME</NavLinkItem>
           <NavLinkItem href="/categories/headphones">HEADPHONES</NavLinkItem>
           <NavLinkItem href="/categories/speakers">SPEAKERS</NavLinkItem>
@@ -91,7 +91,10 @@ export const Header: FC<HeaderProps> = () => {
           <DialogTrigger className="cursor-pointer">
             <ShoppingCartIcon className="text-custom-white" />
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent
+            center={false}
+            className="right-[max(1rem,calc((100%-1110px)/2))] top-28"
+          >
             <DialogHeader>
               <DialogTitle>Are you absolutely sure?</DialogTitle>
               <DialogDescription>
