@@ -4,6 +4,8 @@ import React, { FC } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
+  Button,
+  buttonVariants,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -19,8 +21,16 @@ import {
   DrawerTrigger,
   NavLinkItem,
 } from "@/components/ui";
-import { MenuIcon, ShoppingCartIcon, XIcon } from "lucide-react";
+import {
+  MenuIcon,
+  MinusIcon,
+  PlusIcon,
+  ShoppingCartIcon,
+  XIcon,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useCart } from "@/context/cart";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 interface HeaderProps {}
 
@@ -92,19 +102,122 @@ export const Header: FC<HeaderProps> = () => {
             <ShoppingCartIcon className="text-custom-white" />
           </DialogTrigger>
           <DialogContent
+            showCloseButton={false}
             center={false}
-            className="right-[max(1rem,calc((100%-1110px)/2))] top-28"
+            className="right-[max(1rem,calc((100%-1110px)/2))] top-28 w-full md:w-[400px] border-none"
           >
-            <DialogHeader>
-              <DialogTitle>Are you absolutely sure?</DialogTitle>
+            <DialogHeader className="sr-only">
+              <DialogTitle>Cart Products</DialogTitle>
               <DialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
+                All products added to your cart will appear here.
               </DialogDescription>
             </DialogHeader>
+            <CartContent />
           </DialogContent>
         </Dialog>
       </div>
     </header>
+  );
+};
+
+interface CartContentProps {}
+
+const CartContent: FC<CartContentProps> = () => {
+  const { state, clearCart, updateQuantity } = useCart();
+  const { totalQuantity, items, totalAmount } = state;
+
+  if (items.length === 0) {
+    return (
+      <div className="flex flex-col gap-8">
+        <div className="flex items-center justify-between">
+          <p className="text-h6 uppercase">Cart ({totalQuantity})</p>
+        </div>
+        <p className="text-body">Your cart is empty.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-8">
+      <div className="flex items-center justify-between">
+        <p className="text-h6 uppercase">Cart ({totalQuantity})</p>
+        <Button
+          variant="ghost"
+          size="none"
+          className="underline cursor-pointer text-body"
+          onClick={clearCart}
+        >
+          Remove all
+        </Button>
+      </div>
+      <ul className="flex flex-col gap-6">
+        {items.map((item) => (
+          <li
+            key={item.slug}
+            className="flex items-center justify-between gap-4"
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              className="h-16 w-16 rounded-lg"
+            />
+            <div className="flex flex-col truncate flex-1">
+              <p className="text-body font-bold text-custom-black truncate">
+                {item.name}
+              </p>
+              <p className="text-body text-[14px] font-bold text-custom-black/50 truncate">
+                ${item.price}
+              </p>
+            </div>
+            <div className="flex bg-custom-gray h-8">
+              <Button
+                onClick={() => updateQuantity(item.slug, item.quantity - 1)}
+                className="aspect-square"
+                type="button"
+                variant="none"
+                size="none"
+              >
+                <MinusIcon className="text-custom-black/25" />
+              </Button>
+              <input
+                readOnly
+                value={item.quantity}
+                className={cn(
+                  "w-[40px] outline-none text-center text-subtitle text-custom-black",
+                  "[&::-webkit-outer-spin-button]:appearance-none",
+                  "[&::-webkit-inner-spin-button]:appearance-none",
+                  "[-moz-appearance:textfield]"
+                )}
+                type="number"
+              />
+              <Button
+                onClick={() => updateQuantity(item.slug, item.quantity + 1)}
+                className="aspect-square"
+                type="button"
+                variant="none"
+                size="none"
+              >
+                <PlusIcon className="text-custom-black/25" />
+              </Button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="flex items-center justify-between">
+        <p className="text-body uppercase text-custom-black/50">Total</p>
+        <p className="text-h6 text-custom-black">${totalAmount}</p>
+      </div>
+
+      <DialogPrimitive.Close asChild>
+        <Link
+          className={buttonVariants({
+            className: "text-subtitle uppercase w-full",
+          })}
+          href="/checkout"
+        >
+          Checkout
+        </Link>
+      </DialogPrimitive.Close>
+    </div>
   );
 };

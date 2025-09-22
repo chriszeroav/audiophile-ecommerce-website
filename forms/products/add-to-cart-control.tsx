@@ -4,14 +4,25 @@ import React, { FC, useState } from "react";
 import { Button } from "@/components/ui";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCart } from "@/context/cart";
+import { Product } from "@/data";
 
-interface AddToCartControlProps {}
+interface AddToCartControlProps {
+  product: Product;
+}
 
-export const AddToCartControl: FC<AddToCartControlProps> = () => {
+export const AddToCartControl: FC<AddToCartControlProps> = ({ product }) => {
   const [value, setValue] = useState(1);
+  const { addToCart } = useCart();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    addToCart(product, value);
+    setValue(1);
+  };
 
   return (
-    <form className="flex gap-4">
+    <form className="flex gap-4" onSubmit={handleSubmit}>
       <div className="flex bg-custom-gray">
         <Button
           className="aspect-square"

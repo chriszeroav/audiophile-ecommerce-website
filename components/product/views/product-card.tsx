@@ -53,7 +53,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
             {product.description}
           </p>
           <p className="text-h6 text-custom-black">${product.price}</p>
-          <AddToCartControl />
+          <AddToCartControl product={product} />
         </div>
       </div>
     </section>

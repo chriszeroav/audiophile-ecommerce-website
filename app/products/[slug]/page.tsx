@@ -1,6 +1,5 @@
-import { About, Categories } from "@/components/layout";
+import { About, Categories, GoBack } from "@/components/layout";
 import {
-  GoBack,
   ProductCard,
   ProductDetails,
   ProductGallery,

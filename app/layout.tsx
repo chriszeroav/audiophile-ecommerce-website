@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Footer, Header } from "@/components/layout";
+import { CartProvider } from "@/context/cart";
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -24,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} antialiased`}>
-        <div className="flex flex-col gap-28">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <CartProvider>
+          <div className="flex flex-col gap-28">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );
