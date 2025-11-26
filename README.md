@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Audiophile E-commerce UI
 
-## Getting Started
+Una tienda online simulada para productos tecnológicos como headphones, earphones y speakers. Este proyecto está enfocado en la creación de una interfaz de usuario moderna y funcional.
 
-First, run the development server:
+## 🎯 Propósito
+
+Este proyecto fue desarrollado como una práctica para:
+
+- Crear una tienda online simulada con una experiencia de usuario atractiva.
+- Experimentar con Tailwind CSS v4 para diseño moderno.
+- Implementar componentes reutilizables usando shadcn/ui.
+- Mejorar habilidades en diseño responsive y accesibilidad web (a11y).
+- Aplicar mejores prácticas de React y Next.js.
+
+## 🛠️ Tecnologías
+
+- Next.js 15
+- React 19
+- Tailwind CSS v4
+- TypeScript
+- shadcn/ui
+- Lucide React
+
+## 🚀 Características
+
+✅ Diseño completamente responsive
+✅ Estados de hover y focus en elementos interactivos
+✅ Optimizado para accesibilidad
+✅ Componentes reutilizables y mantenibles
+✅ Tipado con TypeScript
+✅ Animaciones suaves con tailwindcss-animate
+
+## 📦 Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clonar el repositorio
+git clone https://github.com/chriszeroav/audiophile-ecommerce-website.git
+
+# Navegar al directorio
+cd audiophile-ecommerce-website
+
+# Instalar dependencias
+pnpm install
+
+# Ejecutar en modo desarrollo
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El proyecto estará disponible en http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📜 Scripts Disponibles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev      # Inicia el servidor de desarrollo
+pnpm build    # Crea el build de producción
+pnpm start    # Inicia el servidor de producción
+pnpm lint     # Ejecuta el linter
+```
 
-## Learn More
+## 📁 Estructura del Proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/              # Rutas y layouts de Next.js
+├── components/       # Componentes React organizados por feature
+│   ├── category/    # Componentes de categorías de productos
+│   ├── home/        # Componentes de la página principal
+│   ├── layout/      # Header, Footer y otros layouts
+│   ├── product/     # Componentes de productos
+│   └── ui/          # Componentes UI base (shadcn)
+├── context/         # Estado global (ej. carrito de compras)
+├── lib/             # Utilidades y helpers
+├── public/          # Archivos estáticos (imágenes, SVGs)
+└── ...              # Archivos de configuración
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto es de código abierto y fue creado con fines educativos.
