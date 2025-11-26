@@ -2,6 +2,8 @@
 
 Una tienda online simulada para productos tecnológicos como headphones, earphones y speakers. Este proyecto está enfocado en la creación de una interfaz de usuario moderna y funcional.
 
+![audiophile](https://github.com/user-attachments/assets/98e45db1-cb06-42fd-bb27-fbd5d76a7ecf)
+
 ## 🎯 Propósito
 
 Este proyecto fue desarrollado como una práctica para:
